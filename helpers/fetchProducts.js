@@ -6,7 +6,7 @@ const fetchProducts = async (productName) => {
   } catch (error) {
     return error;
   }
-};  
+};
 
 if (typeof module !== 'undefined') {
   module.exports = {
