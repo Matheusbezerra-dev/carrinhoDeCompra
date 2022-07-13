@@ -115,8 +115,7 @@ body {
 }
 
 .item .item__image {
-  width: 100%;  
-  object-fit: cover;
+  width: 100%;
 }
 
 .item .item__add {
