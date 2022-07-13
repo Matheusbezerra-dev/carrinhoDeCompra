@@ -39,10 +39,11 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
 
 const getItem = async (item) => {
   const data = await fetchItem(item);
-  const dataTwo = createCartItemElement({ sku: data.id,
-     name: data.title,
-     salePrice: data.price,
-     });
+  const dataTwo = createCartItemElement({
+    sku: data.id,
+    name: data.title,
+    salePrice: data.price,
+  });
   const cartItems = c('.cart__items');
   cartItems.appendChild(dataTwo);
 };
@@ -63,7 +64,7 @@ const appendItems = async () => {
 };
 
 window.onload = async () => {
-  await appendItems();  
+  await appendItems();
   document.querySelectorAll('.item__add')
     .forEach((item) => item.addEventListener('click', eventListener));
 };
