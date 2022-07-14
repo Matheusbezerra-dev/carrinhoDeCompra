@@ -1,6 +1,7 @@
 const c = (el) => document.querySelector(el);
 const cartItems = c('.cart__items');
 const subTotal = c('.total-price');
+const clear = c('.empty-cart');
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -103,4 +104,9 @@ window.onload = async () => {
   cartStorage();
   selectedEvent();
   totalPrice();
+  clear.addEventListener('click', () => {
+      while (cartItems.firstChild) cartItems.lastChild.remove();
+      totalPrice();
+      saveCartItems(cartItems.innerHTML);   
+  });
 };
