@@ -89,11 +89,16 @@ const selectedEvent = () => {
 };
 
 const appendItems = async () => {
-  const { results } = await fetchProducts('computador');
   const items = c('.items');
+  const load = document.createElement('div');
+  load.className = 'loading';
+  load.innerText = 'carregando...';
+  items.appendChild(load);
+  const { results } = await fetchProducts('computador'); 
+  load.remove(); 
   results.forEach(({ id: sku, title: name, thumbnail: image }) => {
     const allProducts = createProductItemElement({ sku, name, image });
-    items.appendChild(allProducts);
+    items.appendChild(allProducts);    
   });
 };
 
@@ -101,9 +106,9 @@ window.onload = async () => {
   await appendItems();
   document.querySelectorAll('.item__add')
     .forEach((item) => item.addEventListener('click', eventListener));
-  await cartStorage();
-  await selectedEvent();
-  await totalPrice();
+  cartStorage();
+  selectedEvent();
+  totalPrice();
   clear.addEventListener('click', () => {
       while (cartItems.firstChild) cartItems.lastChild.remove();
       totalPrice();
