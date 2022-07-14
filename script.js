@@ -28,8 +28,6 @@ const createProductItemElement = ({ sku, name, image }) => {
   return section;
 };
 
-// const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
-
 const totalSum = () => {
   const cart = document.querySelectorAll('.cart__item');
   const split = [...cart].map((item) => item.innerText).map((item) => {
