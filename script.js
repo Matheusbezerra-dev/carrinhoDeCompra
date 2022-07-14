@@ -42,7 +42,7 @@ const totalSum = () => {
 };
 
 const totalPrice = () => {
-  subTotal.innerText = `$${totalSum()}`;
+  subTotal.innerText = `${totalSum()}`;
 };
 
 const cartItemClickListener = (event) => {
@@ -101,9 +101,9 @@ window.onload = async () => {
   await appendItems();
   document.querySelectorAll('.item__add')
     .forEach((item) => item.addEventListener('click', eventListener));
-  cartStorage();
-  selectedEvent();
-  totalPrice();
+  await cartStorage();
+  await selectedEvent();
+  await totalPrice();
   clear.addEventListener('click', () => {
       while (cartItems.firstChild) cartItems.lastChild.remove();
       totalPrice();
